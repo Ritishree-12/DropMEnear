@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
 import ItemComponent from "./ItemComponent";
+// import MapView, { Marker } from "react-native-maps";
 
 const ChooseVehicle = () => {
   const snapPoints = useMemo(() => ["50%", "70%", "80%"], []);
@@ -53,6 +54,22 @@ const ChooseVehicle = () => {
 
   return (
     <View style={styles.container}>
+      {/* <MapView
+        style={styles.map}
+        region={{
+          // Set the initial region coordinates here
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      >
+        <Marker
+          coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+          title="Marker Title"
+          description="Marker Description"
+        />
+      </MapView> */}
       <BottomSheet index={1} snapPoints={snapPoints}>
         <View style={styles.bottomSheetContent}>
           <Text style={styles.text1}>Choose Vehicle</Text>
@@ -63,10 +80,12 @@ const ChooseVehicle = () => {
             extraData={selectedId}
           />
           <View style={styles.footer}>
+            <View style={{flexDirection:'row',}}>
+              <Text>Cash</Text>
+              <Text>PromoCode</Text>
+            </View>
             <TouchableOpacity
               style={styles.BookNow}
-              // onPress={handleChooseVehicle}
-              // onPress={() => navigation.navigate('ChooseVehicle')}
             >
               <Text style={styles.BookNowText}>Book Now</Text>
             </TouchableOpacity>
